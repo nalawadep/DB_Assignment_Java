@@ -5,18 +5,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.db.assignment.model.RetailManager;
+import com.db.assignment.model.RetailManagerShop;
 
 @RestController
 public class RetailManagerController {  
     
    
     @RequestMapping("/retailManager")
-    public RetailManager retailManager(@RequestParam(value="shopAddNum", defaultValue="shopAddNum") String shopAddNum,@RequestParam(value="shopName", defaultValue="World") String name,@RequestParam(value="postcode", defaultValue="postcode") String postcode) {
+    public RetailManagerShop retailManager(@RequestParam(value="shopAddNum", defaultValue="shopAddNum") String shopAddNum,@RequestParam(value="shopName", defaultValue="World") String name,@RequestParam(value="postcode", defaultValue="postcode") String postcode,@RequestParam(value="shopAddNum", defaultValue="shopAddNum") String shopAddNum) {
     	
-    	return new RetailManager(shopAddNum,
-                name,postcode);
-        /*return new RetailManagerShop(shopAddNum,
-                             name,postcode,shopLongitude,shopLatitude);*/
+    	
+    	String shopLongitude = "10.24.25.26";
+    	String shopLatitude = "10.24.35.45";
+        return new RetailManagerShop(shopAddNum,name,postcode,shopLongitude,shopLatitude);
     }
     
     
